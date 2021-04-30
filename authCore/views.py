@@ -38,10 +38,10 @@ def user(request):
             this_username = request_data['username']
             email = request_data['email']
             password = hashlib.md5(request_data['password'].encode('utf-8')).hexdigest()
-            if request_data['role'] == "RESTAURANT":
-                role = "RESTAURANT"
+            if request_data['role'] == "DOCTOR":
+                role = "DOCTOR"
             else:
-                role = "CUSTOMER"
+                role = "PATIENT"
 
             # Duplicate username error: another user already has chosen this username
             if User.objects.filter(username=this_username).count() != 0:
