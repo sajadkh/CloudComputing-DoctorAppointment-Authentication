@@ -149,7 +149,7 @@ def user_detail(request, pk):
 
 @csrf_exempt
 def login(request):
-    if request.method == "PUT":
+    if request.method == "POST":
         try:
             required_fields = ["username", "password"]
             request_data = extract_request_data_post(request)
@@ -250,3 +250,13 @@ def verify_token(request):
             else:
                 return response.internal_server_error_response()
     return response.method_not_allowed_response()
+
+
+@csrf_exempt
+def health(request):
+    if request.method == 'GET':
+        try:
+            return response.success_response("OK")
+
+        except Exception as e:
+            return response.internal_server_error_response()

@@ -6,5 +6,6 @@ urlpatterns = [
     path('auth/users/<int:pk>', views.user_detail, name='show the user info'),
     path('auth/login', views.login, name='login'),
     path('auth/logout', views.logout, name='logout'),
-    path('auth/verify', views.verify_token, name='verify token')
+    path('auth/verify', views.verify_token, name='verify token'),
+    path('auth/health', views.health, name='Health Check')
 ]

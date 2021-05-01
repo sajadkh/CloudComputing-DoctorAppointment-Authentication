@@ -1,8 +1,6 @@
 #!/bin/bash
 
 echo "start authentication service...."
-echo "create database..."
-python initializer.py
 echo "django makemigrations..."
 python manage.py makemigrations authCore
 echo "django migrate..."
